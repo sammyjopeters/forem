@@ -1,9 +1,14 @@
-<%= simple_form_for [forem, :admin, @forum] do |f| %>
-  <%= f.association :category, :include_blank => false %>
-  <%= f.input :title %>
-  <%= f.input :description, :as => :text %>
+<div class="form-fields-sign">
+
+  <%= simple_form_for [forem, :admin, @forum] do |f| %>
+  <div class="form-group">
+  <%= f.association :category, :include_blank => false, :class => "form-control" %>
+  <%= f.input :title, :class => "form-control" %>
+  <%= f.input :description, :as => :text, :class => "form-control" %>
+</div>
 
   <h3><%= t('forem.admin.forum.moderator_groups') %></h3>
-  <%= f.association :moderators, :as => :check_boxes %>
-  <%= f.submit :class => "btn btn-primary" %>
-<% end %>
+  <%= f.association :moderators, :as => :check_boxes, :class => "checkbox-inline" %>
+  <%= f.submit :class => "btn btn-default" %>
+  <% end %>
+</div>
